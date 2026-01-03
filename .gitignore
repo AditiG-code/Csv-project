@@ -1,0 +1,9 @@
+# Build output
+csvsql
+
+# Object files
+*.o
+
+# macOS junk
+.DS_Store
+
