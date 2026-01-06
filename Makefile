@@ -3,7 +3,8 @@ CXXFLAGS = -std=c++17 -Wall
 INC = -Iinclude
 
 SRC = src/main.cpp \
-      src/storage/CSVReader.cpp
+      src/storage/CSVReader.cpp \
+      src/lexer/Tokenizer.cpp
 
 TARGET = csvsql
 
@@ -12,4 +13,5 @@ all:
 
 clean:
 	rm -f $(TARGET)
+
 
