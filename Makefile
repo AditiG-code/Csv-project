@@ -4,7 +4,8 @@ INC = -Iinclude
 
 SRC = src/main.cpp \
       src/storage/CSVReader.cpp \
-      src/lexer/Tokenizer.cpp
+      src/lexer/Tokenizer.cpp \
+      src/parser/Parser.cpp
 
 TARGET = csvsql
 
