@@ -85,10 +85,10 @@ void Parser::parseWhere(Query& query){
         TokenType::OPERATOR,
         "Expected operator in WHERE clause"
     );
-    Token value=consume(
-        TokenType::NUMBER,
-        "Expected value in WHERE clause"
-    );
+    Token value=advance();
+    if(value.type!=TokenType::NUMBER && value.type!=TokenType::STRING){
+        throw std::runtime_error("Expected value in WHERE clause");
+    }
 
     query.whereColumn=column.value;
     query.whereOperator=op.value;

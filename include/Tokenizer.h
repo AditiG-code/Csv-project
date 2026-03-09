@@ -15,7 +15,7 @@ enum class TokenType{
 
     IDENTIFIER, //COL NAME ,FILE NAME
     NUMBER, //NUMERIC VALUS
-    STRING,
+    STRING, //string values
 
     OPERATOR, //=,> ETC
     COMMA,
@@ -52,7 +52,7 @@ private:
     void skipWhitespace();
     Token readIdentifierOrKeyword();
     Token readNumber();
-    Token readString();
+    Token readString(char quote);
     Token readOperator();
 
 };

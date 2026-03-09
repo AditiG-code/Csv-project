@@ -52,10 +52,10 @@ return {TokenType::NUMBER,value};
 
 }
 
-Token Tokenizer::readString(){
+Token Tokenizer::readString(char quote){
     advance(); //skip start quote
     size_t start=position;
-    while(!isAtEnd() && peek()!='"'){
+    while(!isAtEnd() && peek()!=quote){
         //read content till closing quote
         advance();
     }
@@ -89,8 +89,8 @@ std::vector<Token> Tokenizer::tokenize(){
         else if(std::isdigit(c)){
             tokens.push_back(readNumber());
         }
-        else if(c=='"'){
-            tokens.push_back(readString());
+        else if(c=='"' ||  c=='\''){
+            tokens.push_back(readString(c));
         }
         else if(c==','){
             advance();
@@ -103,6 +103,7 @@ std::vector<Token> Tokenizer::tokenize(){
         else if(c=='='||c=='<'||c=='>'){
             tokens.push_back(readOperator());
         }
+
         else {
             throw std::runtime_error(std::string("Unexpected character: ")+c);
         }
